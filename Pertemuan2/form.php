@@ -20,7 +20,7 @@
         
         ]
         ?>
-<form method="post" action="Nilai_siswa.php">
+<form method="post" action="">
     <div class="form-group row">
         <label for="nama" class="offset-2 col-2 col-form-label">Nama lengkap</label> 
         <div class="col-6">
@@ -74,6 +74,9 @@
 </div>
 <hr style="border-width: 24px;">
 
+<?php
+include_once '../pertemuan4/daftar_nilai.php';
+?>
         
     </body>
     </html>
