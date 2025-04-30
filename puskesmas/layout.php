@@ -1,4 +1,7 @@
-<?php $base_url = "/pemweb2/puskesmas/"; ?>
+<?php
+session_start();
+$base_url = "/pemweb2/puskesmas/";
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -10,13 +13,30 @@
 <body class="bg-gray-100 text-gray-800">
 
     <!-- Top Navbar -->
-    <div class="flex justify-between items-center bg-white px-6 py-3 shadow">
-        <div class="text-xl font-bold text-blue-600">
-            🏥 PUSKESMAS APP
-        </div>
-        <div class="flex items-center gap-4">
-            <span><i class="fas fa-user"></i> Guest</span>
-            <a href="#" class="text-red-500 hover:text-red-700"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    <div class="bg-white px-6 py-3 shadow">
+        <div class="max-w-screen-xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold text-blue-600">
+                🏥 PUSKESMAS APP
+            </div>
+
+            <!-- Avatar Dropdown -->
+            <div class="relative group">
+                <div class="flex items-center gap-3 cursor-pointer group-hover:opacity-80">
+                    <img src="<?= $base_url ?>assets/user.png" alt="user" class="w-8 h-8 rounded-full border border-gray-300">
+                    <span class="font-semibold"><?= $_SESSION['username'] ?? 'Guest' ?></span>
+                    <i class="fas fa-chevron-down text-sm mt-1"></i>
+                </div>
+
+                <!-- DROPDOWN -->
+                <div class="absolute right-0 mt-2 w-40 bg-white rounded shadow-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition duration-150 z-50">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <a href="<?= $base_url ?>logout.php" class="block px-4 py-2 hover:bg-gray-100 text-sm text-red-600">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
